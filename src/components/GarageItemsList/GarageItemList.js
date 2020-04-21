@@ -1,22 +1,21 @@
 import React from "react";
 import GarageItem from "../GarageItem/GarageItem";
+import { connect } from "react-redux";
 
-const GarageItemList = props => {
+const GarageItemList = (props) => {
   return (
-    <ul className="">
+    <ul>
       <h1 className="title is-4 has-text-centered">Promoted Items</h1>
-      {props.garageItems.map(item => {
+      {props.garageItems.map((item) => {
+        const { id, title, desc, image, price } = item;
         return (
-          <li key={item.id} className="">
+          <li key={id}>
             <GarageItem
-              title={item.title}
-              desc={item.desc}
-              img={item.image}
-              price={item.price}
-              id={item.id}
-              deleteItem={props.deleteItem}
-              toggleModal={props.toggleModal}
-              counter={props.counter}
+              title={title}
+              desc={desc}
+              img={image}
+              price={price}
+              id={id}
             />
           </li>
         );
@@ -25,4 +24,10 @@ const GarageItemList = props => {
   );
 };
 
-export default GarageItemList;
+const mapStateToProps = (state) => {
+  return {
+    garageItems: state.garageItems,
+  };
+};
+
+export default connect(mapStateToProps)(GarageItemList);

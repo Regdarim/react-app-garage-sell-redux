@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AddYourItemForm.module.scss";
 
-const AddYourItemForm = props => (
+const AddYourItemForm = (props) => (
   <>
     <h2 className="title is-4 has-text-centered	">Add Your Item</h2>
     <form onSubmit={props.addItem}>
@@ -25,7 +25,7 @@ const AddYourItemForm = props => (
 
         {/* <input type="file" name="image" onchange="loadFile(e)" /> */}
         <div className="column has-text-centered">
-          <button className="button is-primary" type="submit">
+          <button className="button is-primary is-outlined" type="submit">
             Add Item
           </button>
         </div>

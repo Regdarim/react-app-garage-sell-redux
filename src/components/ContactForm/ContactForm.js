@@ -1,7 +1,10 @@
 import React from "react";
 const ContactForm = props => (
   <>
-    <form className="container " onSubmit={props.sendMesseage}>
+    <form
+      className="container "
+      // onSubmit={props.sendMesseage}
+    >
       <h1 className="title is-3">Contact Form</h1>
       <div className="field">
         <label className="label">Name</label>
@@ -39,7 +42,7 @@ const ContactForm = props => (
         <button
           className="button is-primary "
           type="submit"
-          // onClick={this.sendMesseage} whyy?
+          onClick={props.sendMessage}
         >
           Send
         </button>

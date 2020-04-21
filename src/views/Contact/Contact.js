@@ -9,7 +9,7 @@ class Contact extends React.Component {
     usersMailsArray: [...usersMails]
   };
 
-  sendMesseage = e => {
+  sendMessage = e => {
     e.preventDefault();
 
     const newMail = {
@@ -24,6 +24,7 @@ class Contact extends React.Component {
     }));
 
     e.target.reset();
+    console.log("Message Send!");
 
     console.log(...this.state.usersMailsArray);
   };

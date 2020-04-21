@@ -2,21 +2,22 @@ import React from "react";
 
 import UserMail from "../../components/UserMail/UserMail";
 
-const UsersMails = props => {
+const UsersMails = (props) => {
+  const { deleteMessage } = [props];
+
   return (
     <>
       <ul>
-        {props.usersMails.map(item => {
-          console.log(props);
-          console.log(props.usersMails);
+        {props.usersMails.map((item) => {
+          const { name, mail, desc, id } = item;
           return (
-            <li key={item.id}>
+            <li key={id}>
               <UserMail
-                name={item.name}
-                mail={item.mail}
-                desc={item.desc}
-                id={item.id}
-                deleteMessage={props.deleteMessage}
+                name={name}
+                mail={mail}
+                desc={desc}
+                id={id}
+                deleteMessage={deleteMessage}
               />
             </li>
           );

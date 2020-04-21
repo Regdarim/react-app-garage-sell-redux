@@ -1,10 +1,11 @@
 import React from "react";
 
-const RecentlyAdded = props => {
+const RecentlyAdded = (props) => {
+  const { deleteItem } = props;
   return (
     <>
-      {props.recentlyAddedItems.map(item => {
-        console.log(props.recentlyAddedItems);
+      {props.recentlyAddedItems.map((item) => {
+        const { image, title, price, desc, id } = item;
         return (
           <div className="box section">
             <article class="media">
@@ -12,21 +13,18 @@ const RecentlyAdded = props => {
                 <div className="columns">
                   <div class=" column is-one-quarter">
                     <figure class="image is-128x128 is-flex">
-                      <img
-                        src={item.image}
-                        alt={`Authenthic Pictures ${item.title}`}
-                      />
+                      <img src={image} alt={`Authenthic Pictures ${title}`} />
                     </figure>
                   </div>
                   <div className="section coulumn is-one-half">
-                    <h2 className="title is-4 ">{item.title}</h2>
-                    <h3 className="title is-6 ">Price:{item.price}</h3>
+                    <h2 className="title is-4 ">{title}</h2>
+                    <h3 className="title is-6 ">Price:{price}</h3>
                   </div>
                 </div>
 
                 {/* <p>{props.id}</p> */}
                 <div className="">
-                  <p className="has-text-grey  column ">{item.desc}</p>
+                  <p className="has-text-grey  column ">{desc}</p>
                 </div>
 
                 <div className="columns">
@@ -39,7 +37,7 @@ const RecentlyAdded = props => {
                   <div className="column">
                     <button
                       className="button is-danger  "
-                      onClick={() => props.deleteItem(item.id)}
+                      onClick={() => deleteItem(id)}
                     >
                       Delete
                     </button>
