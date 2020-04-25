@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import cart from "../assets/icons/supermarket.svg";
 import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const { home, aboutProject, contact } = routes;
-  const { setBuyCounter } = props;
+  // const { cartCounter } = props;
+
+  const selectCartCounter = useSelector((state) => state.cartCounter);
+
   return (
     <nav className="navbar">
       <div className="navbar-start is-centered">
@@ -28,7 +32,7 @@ const NavBar = (props) => {
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
-          <span>{props.setBuyCounter}</span>
+          <span>{selectCartCounter}</span>
           <img src={cart} alt="" />
         </div>
         <div className="navbar-item"></div>
@@ -45,9 +49,9 @@ const NavBar = (props) => {
     </nav>
   );
 };
-const mapStateToProps = (state) => {
-  const { setBuyCounter } = state;
-  return { setBuyCounter: setBuyCounter };
-};
-
-export default connect(mapStateToProps)(NavBar);
+// const mapStateToProps = (state) => {
+//   const { cartCounter } = state;
+//   return { cartCounter: cartCounter };
+// };
+// connect(mapStateToProps)
+export default NavBar;

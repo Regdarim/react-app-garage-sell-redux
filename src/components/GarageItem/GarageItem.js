@@ -3,11 +3,15 @@ import styles from "./GarageItem.module.scss";
 import { connect } from "react-redux";
 import { setModalOpen as setModalOpenAction } from "../../actions";
 import { setBuyCounter as setBuyCounterAction } from "../../actions";
+import { useDispatch } from "react-redux";
 
 import PropTypes from "prop-types";
 
 const GarageItem = (props) => {
-  const { img, title, price, desc, setBuyCounter, setModalOpen } = props;
+  const { img, title, price, desc } = props;
+
+  const dispatch = useDispatch();
+
   return (
     <div className="box section">
       <article class="media">
@@ -24,7 +28,6 @@ const GarageItem = (props) => {
             </div>
           </div>
 
-          {/* <p>{id}</p> */}
           <div className="">
             <p className="has-text-grey  column ">{desc}</p>
           </div>
@@ -33,7 +36,7 @@ const GarageItem = (props) => {
             <div className="column">
               <button
                 className="button is-primary is-outlined"
-                onClick={setBuyCounter}
+                onClick={() => dispatch(setBuyCounterAction())}
               >
                 Buy Now
               </button>
@@ -41,7 +44,7 @@ const GarageItem = (props) => {
             <div className="column">
               <button
                 className="button is-info is-outlined"
-                onClick={setModalOpen}
+                onClick={() => dispatch(setModalOpenAction())}
               >
                 Ask Question
               </button>
@@ -61,13 +64,13 @@ const GarageItem = (props) => {
   );
 };
 
-GarageItem.propTypes = {
-  setModalOpen: PropTypes.bool.isRequired,
-};
+// GarageItem.propTypes = {
+//   setModalOpen: PropTypes.bool.isRequired,
+// };
 
-const mapDispatchToProps = (dispatch) => ({
-  setModalOpen: () => dispatch(setModalOpenAction()),
-  setBuyCounter: () => dispatch(setBuyCounterAction()),
-});
-
-export default connect(null, mapDispatchToProps)(GarageItem);
+// const mapDispatchToProps = (dispatch) => ({
+//   setModalOpen: () => dispatch(setModalOpenAction()),
+//   setBuyCounter: () => dispatch(setBuyCounterAction()),
+// });
+// connect(null, mapDispatchToProps)
+export default GarageItem;

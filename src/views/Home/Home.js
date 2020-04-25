@@ -16,43 +16,43 @@ class Home extends React.Component {
     buyCounter: 0,
   };
 
-  addItem = (e) => {
-    e.preventDefault();
+  // addItem = (e) => {
+  //   e.preventDefault();
 
-    const newGarageItem = {
-      title: e.target.title.value,
-      desc: e.target.desc.value,
-      image: e.target.itemImage.value,
-      price: e.target.price.value,
-      id: this.state.garageItems.length + 1,
-    };
+  //   const newGarageItem = {
+  //     title: e.target.title.value,
+  //     desc: e.target.desc.value,
+  //     image: e.target.itemImage.value,
+  //     price: e.target.price.value,
+  //     id: this.state.garageItems.length + 1,
+  //   };
 
-    // this.setState({
-    //   garageItems: [...this.state.garageItems, newGarageItem]
-    // });
+  // this.setState({
+  //   garageItems: [...this.state.garageItems, newGarageItem]
+  // });
 
-    this.setState((prevState) => ({
-      garageItems: [...prevState.garageItems, newGarageItem],
-      recentlyAddedItems: [...prevState.recentlyAddedItems, newGarageItem],
-    }));
+  //   this.setState((prevState) => ({
+  //     garageItems: [...prevState.garageItems, newGarageItem],
+  //     recentlyAddedItems: [...prevState.recentlyAddedItems, newGarageItem],
+  //   }));
 
-    console.log(this.state.recentlyAddedItems);
+  //   console.log(this.state.recentlyAddedItems);
 
-    e.target.reset();
-  };
+  //   e.target.reset();
+  // };
 
-  deleteItem = (id) => {
-    const filteredAllGarageItemsArray = this.state.garageItems.filter(
-      (item) => id !== item.id
-    );
-    const filteredRecentItems = this.state.recentlyAddedItems.filter(
-      (item) => id !== item.id
-    );
-    this.setState({
-      garageItems: [...filteredAllGarageItemsArray],
-      recentlyAddedItems: [...filteredRecentItems],
-    });
-  };
+  // deleteItem = (id) => {
+  //   const filteredAllGarageItemsArray = this.state.garageItems.filter(
+  //     (item) => id !== item.id
+  //   );
+  //   const filteredRecentItems = this.state.recentlyAddedItems.filter(
+  //     (item) => id !== item.id
+  //   );
+  //   this.setState({
+  //     garageItems: [...filteredAllGarageItemsArray],
+  //     recentlyAddedItems: [...filteredRecentItems],
+  //   });
+  // };
 
   // toggleModal = e => {
   //   this.setState(prevState => ({
@@ -75,7 +75,7 @@ class Home extends React.Component {
 
           <div className="columns section">
             <div className="column">
-              <AddYourItemForm addItem={this.addItem} />
+              <AddYourItemForm />
 
               <div className="section">
                 {this.props.isModalOpen && (

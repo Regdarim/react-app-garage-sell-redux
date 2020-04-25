@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import AboutProject from "../AboutProject/AboutProject";
 import Contact from "../Contact/Contact";
-import UsersMails from "../UsersMails/UsersMails";
 import { routes } from "../../routes";
 import { Provider } from "react-redux";
 import store from "../../store";

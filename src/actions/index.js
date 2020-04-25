@@ -21,9 +21,28 @@ export const setBuyCounter = () => {
   };
 };
 
-// counter = (e) => {
-//   this.setState((prevState) => ({
-//     buyCounter: prevState.buyCounter + 1,
-//   }));
-//   console.log(this.state.buyCounter);
-// };
+export const addNewItem = (e) => {
+  e.preventDefault();
+  const newGarageItem = {
+    title: e.target.title.value,
+    desc: e.target.desc.value,
+    image: e.target.itemImage.value,
+    price: e.target.price.value,
+    id: 10,
+  };
+  return {
+    type: types.ADD_NEW_ITEM,
+    payload: newGarageItem,
+  };
+};
+
+// addItem = (e) => {
+//   e.preventDefault();
+
+//   const newGarageItem = {
+//     title: e.target.title.value,
+//     desc: e.target.desc.value,
+//     image: e.target.itemImage.value,
+//     price: e.target.price.value,
+//     id: this.state.garageItems.length + 1,
+//   };

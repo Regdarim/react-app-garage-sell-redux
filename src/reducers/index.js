@@ -9,7 +9,7 @@ import * as types from "../actions/actionTypes";
 
 const initialState = {
   isModalOpen: false,
-  setBuyCounter: 0,
+  cartCounter: 0,
 
   garageItems: [
     {
@@ -72,7 +72,9 @@ const rootReducer = (state = initialState, action) => {
     case types.SET_MODAL_CLOSE:
       return { ...state, isModalOpen: payload };
     case types.SET_BUY_COUNTER:
-      return { ...state, setBuyCounter: state.setBuyCounter + payload };
+      return { ...state, cartCounter: state.cartCounter + payload };
+    case types.ADD_NEW_ITEM:
+      return { ...state, garageItems: [...state.garageItems, payload] };
 
     default:
       return state;
